@@ -3,6 +3,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const Pusher = require('pusher');
+const keys = require('../config/keys');
 
 // create a express application
 const app = express();
@@ -16,11 +17,11 @@ const app = express();
 //     encrypted: true
 // });
 let pusher = new Pusher({
-  appId: '957735',
-  key: '138613f6c714ecb1d231',
-  secret: '4ef4f1d9815317c0faed',
-  cluster: 'us2',
-  encrypted: true
+  appId:        keys.pusherAppId,
+  key:          keys.pusherKey,
+  secret:       keys.pusherSecret,
+  cluster:      keys.pusherCluster,
+  encrypted:    keys.pusherEncrypted 
 });
 
 app.use(bodyParser.json());
