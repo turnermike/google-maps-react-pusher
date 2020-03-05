@@ -40,6 +40,8 @@ app.use((req, res, next) => {
 
 app.post('/pusher/auth', (req, res) => {
 
+    console.log('/pusher/auth route');
+
     let socketId = req.body.socket_id;
     let channel = req.body.channel_name;
     random_string = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
@@ -55,6 +57,8 @@ app.post('/pusher/auth', (req, res) => {
 });
 
 app.post('/update-location', (req, res) => {
+
+    console.log('/update-location route');
 
     // trigger a new post event via pusher
     pusher.trigger('presence-channel', 'location-update', {
